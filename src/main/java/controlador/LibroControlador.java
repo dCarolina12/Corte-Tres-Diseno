@@ -8,6 +8,7 @@ import dao.LibroDAO;
 import java.sql.SQLException;
 import modelo.Libro;
 import java.time.LocalDate;
+import java.util.List;
 
 public class LibroControlador {
     
@@ -59,4 +60,16 @@ public class LibroControlador {
     public Libro findLibroById(int id) throws SQLException {
         return libroDAO.findById(id);
     }
+    
+    // Método para obtener todos los libros
+    public List<Libro> findAllLibros() throws SQLException {
+        return libroDAO.findAll();
+ 
+    }
+    
+    public boolean agregarReseñaYCalificacion(int idLibro, int calificacion, String reseña) {
+    return libroDAO.actualizarReseñaYCalificacion(idLibro, calificacion, reseña);
+}
+    
+    
 }

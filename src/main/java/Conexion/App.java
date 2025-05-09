@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class App {
     private static final String URL = "jdbc:mysql://localhost:3307/organizadorlibros";
     private static final String USER = "root";
-    private static final String PASSWORD = "manuela14012";
+    private static final String PASSWORD = "pumbolillo1145D";
     
     private static App instance; 
     private Connection connection;

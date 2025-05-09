@@ -124,4 +124,18 @@ public class LibroDAO {
         }
         return libros;
     }
+    
+    public boolean actualizarReseñaYCalificacion(int id, int calificacion, String reseña) {
+        String sql = "UPDATE libro SET calificacion = ?, reseña = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, calificacion);
+            stmt.setString(2, reseña);
+            stmt.setInt(3, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
 }
