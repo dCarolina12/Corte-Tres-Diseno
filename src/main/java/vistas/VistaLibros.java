@@ -5,6 +5,8 @@
 package vistas;
 
 import controlador.LibroControlador;
+import dao.LibroDAO;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -77,6 +79,7 @@ public class VistaLibros extends javax.swing.JFrame {
         txtFechaLectura = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtGenero = new javax.swing.JTextField();
+        btnFavorito = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,16 +150,26 @@ public class VistaLibros extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Perpetua", 2, 18)); // NOI18N
         jLabel6.setText("Genero:");
 
+        btnFavorito.setFont(new java.awt.Font("Perpetua", 1, 18)); // NOI18N
+        btnFavorito.setText("Favorito");
+        btnFavorito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFavoritoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(btnVolver)
-                .addGap(99, 99, 99)
+                .addGap(54, 54, 54)
+                .addComponent(btnFavorito)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnReseña)
-                .addGap(106, 106, 106))
+                .addGap(73, 73, 73))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
@@ -232,7 +245,8 @@ public class VistaLibros extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolver)
-                    .addComponent(btnReseña))
+                    .addComponent(btnReseña)
+                    .addComponent(btnFavorito))
                 .addGap(15, 15, 15))
         );
 
@@ -241,11 +255,35 @@ public class VistaLibros extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
- 
-       
+        try {
+            String titulo = txtTitulo.getText().trim();
+            String autor = txtAutor.getText().trim();
+            int añoPublicacion = Integer.parseInt(txtAñoPublicacion.getText().trim());
+            String genero = txtGenero.getText().trim();
+            LocalDate fechaLectura = LocalDate.parse(txtFechaLectura.getText()); // formato: YYYY-MM-DD
+            
+            // Crear el libro usando Builder (si ya lo tenés implementado así)
+            Libro libro = Libro.builder()
+                    
+                    .titulo(titulo)
+                    .autor(autor)
+                    .añopublicacion(añoPublicacion)
+                    .genero(genero)
+                    .fechaLectura(fechaLectura)
+                    .build();
+            
+            LibroDAO libroDAO = new LibroDAO(); // O usá el controlador si lo tenés
+            libroDAO.save(libro);
 
-    
-        
+            actualizarTabla(); // Refresca la tabla con los nuevos datos
+
+            JOptionPane.showMessageDialog(null, "Libro agregado correctamente");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al agregar libro: " + ex.getMessage());
+        }
+       
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -304,6 +342,23 @@ public class VistaLibros extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnReseñaActionPerformed
 
+    private void btnFavoritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFavoritoActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = TablaLibros.getSelectedRow();
+
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, "Seleccioná un libro para marcar como favorito.");
+        return;
+    }
+
+    String titulo = TablaLibros.getValueAt(filaSeleccionada, 1).toString(); 
+    JOptionPane.showMessageDialog(this, "¡Marcaste como favorito el libro: " + titulo + "!");
+        
+        
+        
+        
+    }//GEN-LAST:event_btnFavoritoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,6 +368,7 @@ public class VistaLibros extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnFavorito;
     private javax.swing.JButton btnReseña;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;

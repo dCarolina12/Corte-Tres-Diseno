@@ -6,9 +6,13 @@ C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\Conexion\App.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\modelo\Usuario.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\vistas\VistaLibros.java
+C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\decorator\LibroBasico.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\vistas\VentanaRegistro.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\vistas\VistaEliminarCuenta.java
+C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\decorator\LibroDecorator.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\vistas\VistaConfiguraciones.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\databaseConfig\DatabaseConfig.java
+C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\decorator\LibroComponente.java
+C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\decorator\FavoritoDecorator.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\modelo\Libro.java
 C:\Users\DIANA CAROLINA\Downloads\Proyecto.Corte.tres.Dise-o-main\Proyecto.Corte.tres.Dise-o-main\src\main\java\dao\LibroDAO.java
